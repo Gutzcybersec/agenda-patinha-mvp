@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-body">
+                <h3 class="mb-4">Novo Agendamento</h3>
+
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Nome do Pet</label>
+                        <input type="text" name="pet" class="form-control form-control-lg" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nome do Tutor</label>
+                        <input type="text" name="tutor" class="form-control form-control-lg" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Serviço</label>
+                        <select name="servico" class="form-select form-select-lg" required>
+                            <option value="Banho">Banho</option>
+                            <option value="Tosa">Tosa</option>
+                            <option value="Banho e Tosa">Banho e Tosa</option>
+                            <option value="Tosa Higiênica">Tosa Higiênica</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Data</label>
+                        <input type="date" name="data" class="form-control form-control-lg" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Horário</label>
+                        <input type="time" name="horario" class="form-control form-control-lg" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Observação (opcional)</label>
+                        <textarea name="observacao" class="form-control form-control-lg" rows="2" placeholder="Ex: pet agressivo, trazer toalha..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-lg w-100">Salvar Agendamento</button>
+                    <a href="{{ url_for('main.agenda') }}" class="btn btn-outline-secondary btn-lg w-100 mt-2">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

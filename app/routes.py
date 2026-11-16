@@ -15,7 +15,6 @@ def login():
         usuario = request.form.get('usuario')
         senha = request.form.get('senha')
         
-        # Login simples para o MVP (usuário: jael / senha: 123456)
         if usuario == 'jael' and senha == '123456':
             return redirect(url_for('main.agenda'))
         else:
@@ -25,20 +24,23 @@ def login():
 
 @bp.route('/agenda')
 def agenda():
-    agendamentos = Agendamento.query.order_by(Agendamento.data, Agendamento.horario).all()
-    return render_template('agenda.html', agendamentos=agendamentos)
+    return render_template('agenda.html')
 
 @bp.route('/novo-agendamento', methods=['GET', 'POST'])
 def novo_agendamento():
     if request.method == 'POST':
-        # Por enquanto só redireciona com sucesso (vamos melhorar depois)
-        flash('Agendamento realizado com sucesso!', 'success')
+        pet = request.form.get('pet')
+        tutor = request.form.get('tutor')
+        servico = request.form.get('servico')
+        data = request.form.get('data')
+        horario = request.form.get('horario')
+        observacao = request.form.get('observacao')
+
+        flash(f'Agendamento de {pet} realizado com sucesso para {data} às {horario}!', 'success')
         return redirect(url_for('main.feedback'))
     
-    return render_template('agenda.html')
+    return render_template('novo_agendamento.html')
 
 @bp.route('/feedback')
 def feedback():
     return render_template('feedback.html')
-
-# Revisão técnica: estrutura de rotas organizada em Blueprint para melhor modularização
