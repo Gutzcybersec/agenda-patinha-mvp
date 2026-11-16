@@ -48,3 +48,28 @@ pip install -r requirements.txt
 
 # Execute a aplicação
 python run.py
+
+Acesse: http://127.0.0.1:5000
+Estrutura do Projeto
+
+agenda-patinha-mvp/
+├── app/
+│   ├── __init__.py
+│   ├── models.py
+│   ├── routes.py
+│   └── templates/
+├── tests/
+├── requirements.txt
+├── run.py
+└── README.md
+
+Status do ProjetoEm desenvolvimento – Experiência Prática IIIAutorDesenvolvido para a disciplina de Projeto de Software.
+
+---
+
+### 3. Conteúdo dos arquivos iniciais
+
+**requirements.txt**
+```txt
+Flask==3.0.3
+Flask-SQLAlchemy==3.1.1
