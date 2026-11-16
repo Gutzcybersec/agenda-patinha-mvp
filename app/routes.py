@@ -40,3 +40,5 @@ def novo_agendamento():
 @bp.route('/feedback')
 def feedback():
     return render_template('feedback.html')
+
+# Revisão técnica: estrutura de rotas organizada em Blueprint para melhor modularização
